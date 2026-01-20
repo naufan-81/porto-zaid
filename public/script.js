@@ -1,65 +1,73 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Toggle Menu Mobile
-  const menuToggle = document.getElementById("mobile-menu");
-  const sidebar = document.querySelector(".sidebar");
+  // --- DATA PROYEK (Langsung disini biar gak perlu server) ---
+  const portfolioData = [
+    {
+      title: "SaaS Dashboard",
+      category: "Full Stack",
+      img: "https://via.placeholder.com/600x400/111/e11d48?text=Dashboard",
+    },
+    {
+      title: "E-Commerce API",
+      category: "Backend",
+      img: "https://via.placeholder.com/600x400/111/e11d48?text=API+Service",
+    },
+    {
+      title: "Crypto Mobile App",
+      category: "React Native",
+      img: "https://via.placeholder.com/600x400/111/e11d48?text=Crypto+App",
+    },
+    {
+      title: "Company Profile",
+      category: "Frontend",
+      img: "https://via.placeholder.com/600x400/111/e11d48?text=Landing+Page",
+    },
+    {
+      title: "AI Image Tool",
+      category: "Python / AI",
+      img: "https://via.placeholder.com/600x400/111/e11d48?text=AI+Generator",
+    },
+    {
+      title: "Inventory System",
+      category: "Web App",
+      img: "https://via.placeholder.com/600x400/111/e11d48?text=Inventory",
+    },
+  ];
 
-  if (menuToggle) {
-    menuToggle.addEventListener("click", () => {
-      sidebar.classList.toggle("active");
-      const icon = menuToggle.querySelector("i");
-      if (sidebar.classList.contains("active")) {
-        icon.classList.remove("fa-bars");
-        icon.classList.add("fa-times");
-      } else {
-        icon.classList.remove("fa-times");
-        icon.classList.add("fa-bars");
-      }
+  // --- TAMPILKAN KE LAYAR ---
+  const container = document.getElementById("portfolio-container");
+  if (container) {
+    container.innerHTML = "";
+    portfolioData.forEach((project) => {
+      const card = document.createElement("div");
+      card.classList.add("portfolio-item");
+      card.innerHTML = `
+                <img src="${project.img}" alt="${project.title}">
+                <div class="portfolio-info">
+                    <span style="color: #ff004f; font-size: 11px; font-weight:bold;">${project.category.toUpperCase()}</span>
+                    <h3 style="margin-top:5px; font-size:1.2rem;">${project.title}</h3>
+                    <a href="#" style="color: #ccc; font-size: 13px;">View Code &rarr;</a>
+                </div>
+            `;
+      container.appendChild(card);
     });
   }
 
-  // Fetch Portfolio Data
-  fetch("/api/portfolio")
-    .then((response) => response.json())
-    .then((data) => {
-      const container = document.getElementById("portfolio-container");
-      container.innerHTML = ""; // Bersihkan container
+  // --- TOMBOL MENU HP ---
+  const menuToggle = document.getElementById("mobile-menu");
+  const sidebar = document.querySelector(".sidebar");
+  if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+    });
+  }
 
-      data.forEach((project) => {
-        const card = document.createElement("div");
-        card.classList.add("portfolio-item");
-
-        card.innerHTML = `
-                    <img src="${project.img}" alt="${project.title}">
-                    <div class="portfolio-info">
-                        <span style="color: #ff004f; font-size: 11px; font-weight:bold; letter-spacing:1px;">${project.category.toUpperCase()}</span>
-                        <h3 style="margin-top:5px; font-size:1.2rem;">${project.title}</h3>
-                        <a href="#" style="color: #ccc; text-decoration: none; font-size: 13px;">View Code &rarr;</a>
-                    </div>
-                `;
-        container.appendChild(card);
-      });
-    })
-    .catch((err) => console.error("Error fetching data:", err));
-
-  // Form Submit
+  // --- FORM KONTAK (Versi Tanpa Server) ---
   const form = document.getElementById("contactForm");
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-
-      fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      })
-        .then((res) => res.json())
-        .then((result) => {
-          alert(result.message);
-          form.reset();
-        })
-        .catch(() => alert("Gagal mengirim pesan."));
+      alert("Pesan Terkirim! (Ini adalah demo portofolio)");
+      form.reset();
     });
   }
 });
