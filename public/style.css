@@ -401,3 +401,20 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* --- PERBAIKAN TOMBOL PRICING (Full Width) --- */
+.price-card .btn-primary,
+.price-card .btn-outline {
+  width: 100% !important; /* Paksa tombol jadi lebar penuh */
+  display: block !important; /* Pastikan bentuknya kotak blok */
+  text-align: center; /* Teks rata tengah */
+  padding: 15px 0; /* Jarak atas-bawah pas, kiri-kanan 0 */
+  margin-top: 20px; /* Jarak dari list di atasnya */
+  box-sizing: border-box; /* Pastikan padding tidak merusak ukuran */
+  white-space: nowrap; /* Teks dilarang turun baris */
+}
+
+/* Pastikan kartu pricing tidak gepeng di HP */
+.price-card {
+  padding: 30px 20px; /* Sesuaikan padding kartu di HP */
+  width: 100%;
+}
