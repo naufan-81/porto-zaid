@@ -1,73 +1,78 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- DATA PROYEK (Langsung disini biar gak perlu server) ---
+  // --- 1. DATA PROJECT (Portofolio Anda) ---
   const portfolioData = [
+    // PROYEK JAGOAN (Web App / Pizza)
     {
-      title: "SaaS Dashboard",
-      category: "Full Stack",
-      img: "https://via.placeholder.com/600x400/111/e11d48?text=Dashboard",
+      title: "Pizza Delivery System",
+      category: "Web App (Full Stack)",
+      img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80",
+      link: "https://github.com/naufan-81/porto-zaid", // Link GitHub Anda
     },
     {
-      title: "E-Commerce API",
-      category: "Backend",
-      img: "https://via.placeholder.com/600x400/111/e11d48?text=API+Service",
+      title: "Inventory Dashboard",
+      category: "Web App (System)",
+      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+      link: "#",
+    },
+
+    // PROYEK LANDING PAGE (Desain)
+    {
+      title: "Coffee Shop Promo",
+      category: "Landing Page",
+      img: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80",
+      link: "#",
     },
     {
-      title: "Crypto Mobile App",
-      category: "React Native",
-      img: "https://via.placeholder.com/600x400/111/e11d48?text=Crypto+App",
+      title: "Travel Agency Web",
+      category: "Landing Page",
+      img: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80",
+      link: "#",
     },
     {
-      title: "Company Profile",
-      category: "Frontend",
-      img: "https://via.placeholder.com/600x400/111/e11d48?text=Landing+Page",
+      title: "Fashion Store",
+      category: "E-Commerce UI",
+      img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80",
+      link: "#",
     },
     {
-      title: "AI Image Tool",
-      category: "Python / AI",
-      img: "https://via.placeholder.com/600x400/111/e11d48?text=AI+Generator",
-    },
-    {
-      title: "Inventory System",
-      category: "Web App",
-      img: "https://via.placeholder.com/600x400/111/e11d48?text=Inventory",
+      title: "Gym Membership",
+      category: "Landing Page",
+      img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80",
+      link: "#",
     },
   ];
 
-  // --- TAMPILKAN KE LAYAR ---
+  // --- 2. RENDER KE LAYAR ---
   const container = document.getElementById("portfolio-container");
   if (container) {
     container.innerHTML = "";
     portfolioData.forEach((project) => {
       const card = document.createElement("div");
       card.classList.add("portfolio-item");
+
+      // Pembeda Warna: Web App (Merah), Landing Page (Kuning Emas)
+      let categoryColor = project.category.includes("Web App")
+        ? "#ff004f"
+        : "#ffb700";
+
       card.innerHTML = `
                 <img src="${project.img}" alt="${project.title}">
                 <div class="portfolio-info">
-                    <span style="color: #ff004f; font-size: 11px; font-weight:bold;">${project.category.toUpperCase()}</span>
+                    <span style="color: ${categoryColor}; font-size: 11px; font-weight:bold; letter-spacing:1px;">${project.category.toUpperCase()}</span>
                     <h3 style="margin-top:5px; font-size:1.2rem;">${project.title}</h3>
-                    <a href="#" style="color: #ccc; font-size: 13px;">View Code &rarr;</a>
+                    <a href="${project.link}" target="_blank" style="color: #fff; text-decoration: none; font-size: 13px; border: 1px solid #555; padding: 5px 12px; border-radius: 4px; margin-top:10px; display:inline-block; background: rgba(0,0,0,0.5);">View Code &rarr;</a>
                 </div>
             `;
       container.appendChild(card);
     });
   }
 
-  // --- TOMBOL MENU HP ---
+  // --- 3. FITUR MENU HP ---
   const menuToggle = document.getElementById("mobile-menu");
   const sidebar = document.querySelector(".sidebar");
   if (menuToggle) {
     menuToggle.addEventListener("click", () => {
       sidebar.classList.toggle("active");
-    });
-  }
-
-  // --- FORM KONTAK (Versi Tanpa Server) ---
-  const form = document.getElementById("contactForm");
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      alert("Pesan Terkirim! (Ini adalah demo portofolio)");
-      form.reset();
     });
   }
 });
