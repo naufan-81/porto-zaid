@@ -1,420 +1,447 @@
-/* --- CSS YANG SUDAH DIPERBARUI --- */
+/* --- 1. RESET & VARIABLES --- */
 :root {
-  --bg-color: #050505;
-  --card-bg: #111111;
-  --input-bg: #1a1a1a;
-  --accent: #ff004f; /* Warna Merah/Pink sesuai gambar */
-  --text-main: #ffffff;
-  --text-muted: #a0a0a0;
+  --bg-color: #101010; /* Latar Gelap Premium */
+  --card-bg: #191919; /* Warna Kartu */
+  --primary: #ff004f; /* Merah Aksen */
+  --text-white: #ffffff;
+  --text-grey: #a0a0a0;
+  --font-main: "Poppins", sans-serif;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-main);
+  scroll-behavior: smooth;
 }
+
 body {
   background-color: var(--bg-color);
-  color: var(--text-main);
-  display: flex;
+  color: var(--text-white);
   overflow-x: hidden;
 }
 
-/* SIDEBAR & NAV */
-.sidebar {
-  width: 250px;
-  height: 100vh;
-  background: var(--bg-color);
-  padding: 40px 20px;
-  position: fixed;
-  border-right: 1px solid #222;
+a {
+  text-decoration: none;
+  color: inherit;
 }
-.sidebar .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
-  margin-bottom: 50px;
-  letter-spacing: 2px;
-}
-.sidebar ul li {
+ul {
   list-style: none;
+}
+
+/* --- 2. SIDEBAR NAVIGASI --- */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 260px;
+  height: 100%;
+  background-color: var(--card-bg);
+  padding: 40px;
+  border-right: 1px solid #222;
+  z-index: 1000;
+  transition: 0.3s;
+}
+
+.sidebar .logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+}
+
+.sidebar ul li {
   margin-bottom: 20px;
 }
+
 .sidebar ul li a {
-  color: var(--text-muted);
-  text-decoration: none;
+  color: var(--text-grey);
+  font-size: 16px;
+  font-weight: 500;
   transition: 0.3s;
   display: block;
-  padding: 5px 0;
 }
+
 .sidebar ul li a:hover,
 .sidebar ul li a.active {
-  color: var(--accent);
+  color: var(--primary);
   transform: translateX(5px);
 }
 
-/* MAIN CONTENT */
+/* --- 3. LAYOUT UTAMA --- */
 main {
-  margin-left: 250px;
-  width: calc(100% - 250px);
+  margin-left: 260px; /* Ruang untuk sidebar */
   padding: 0;
 }
+
 section {
-  padding: 80px 60px;
-  border-bottom: 1px solid #111;
+  padding: 80px 10%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid #222;
 }
+
 .section-header {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 .section-header.center {
   text-align: center;
 }
 
-/* TYPOGRAPHY */
-h1 {
-  font-size: 3.5rem;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-h2 {
-  font-size: 2.5rem;
-}
-h3 {
-  font-size: 1.5rem;
-  color: #fff;
-  margin-bottom: 10px;
-}
-.highlight {
-  color: var(--accent);
-}
 .red-text {
-  color: var(--accent);
+  color: var(--primary);
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 2px;
-  font-size: 0.9rem;
   margin-bottom: 10px;
   display: block;
-}
-.subtitle {
-  color: var(--text-muted);
-  letter-spacing: 3px;
-  margin-bottom: 10px;
-  font-size: 0.9rem;
-}
-.desc {
-  color: var(--text-muted);
-  max-width: 500px;
-  line-height: 1.6;
-  margin-bottom: 30px;
+  text-transform: uppercase;
 }
 
-/* BUTTONS */
+h2 {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+/* --- 4. HERO SECTION --- */
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.subtitle {
+  letter-spacing: 3px;
+  font-size: 14px;
+  color: var(--text-grey);
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.highlight {
+  color: var(--primary);
+}
+
+.desc {
+  font-size: 16px;
+  color: var(--text-grey);
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+
+.hero-img img {
+  width: 350px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  filter: grayscale(20%);
+  transition: 0.3s;
+}
+
+.hero-img img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+/* --- 5. TOMBOL (Sudah Diperbaiki) --- */
 .btn-primary {
-  background: var(--accent);
+  background-color: var(--primary);
   color: white;
   padding: 15px 35px;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
   font-weight: 600;
+  cursor: pointer;
   transition: 0.3s;
-  box-shadow: 0 5px 15px rgba(255, 0, 79, 0.2);
+  font-size: 16px;
+  box-shadow: 0 10px 20px rgba(255, 0, 79, 0.2);
+  display: inline-block;
 }
+
 .btn-primary:hover {
+  background-color: #d40042;
   transform: translateY(-3px);
-  background: #d40042;
 }
+
 .btn-outline {
   background: transparent;
+  color: var(--text-white);
   border: 1px solid #333;
-  color: white;
-  padding: 12px 25px;
+  padding: 12px 30px;
   border-radius: 5px;
+  font-weight: 500;
   cursor: pointer;
   transition: 0.3s;
+  display: inline-block;
 }
+
 .btn-outline:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
-/* HERO */
-.hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 100vh;
-}
-.hero-img img {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 20px;
-  filter: grayscale(20%);
-  transition: 0.3s;
-}
-.hero-img img:hover {
-  filter: grayscale(0%);
-}
-
-/* SERVICES GRID */
+/* --- 6. SERVICES GRID --- */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
 }
+
 .service-card {
   background: var(--card-bg);
   padding: 40px;
   border-radius: 10px;
-  border: 1px solid #222;
   transition: 0.3s;
 }
+
 .service-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-5px);
-}
-.service-card p {
-  color: var(--text-muted);
-  font-size: 0.9rem;
+  background: #222;
+  transform: translateY(-10px);
 }
 
-/* --- RESUME SECTION (NEW) --- */
+.service-card h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  color: var(--text-grey);
+  line-height: 1.6;
+}
+
+/* --- 7. RESUME GRID --- */
 .resume-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
-  margin-bottom: 50px;
 }
-.resume-col h3 {
-  margin-bottom: 30px;
-  border-left: 3px solid var(--accent);
-  padding-left: 15px;
-}
+
 .resume-card {
-  background: var(--card-bg);
-  padding: 30px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #222;
+  border-left: 3px solid #333;
+  padding-left: 30px;
   position: relative;
+  margin-bottom: 40px;
 }
-.resume-card:hover {
-  background: #161616;
+
+.resume-card::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background: var(--card-bg);
+  border: 3px solid var(--primary);
+  border-radius: 50%;
 }
-.resume-card .year {
-  font-size: 0.8rem;
-  color: var(--accent);
-  margin-bottom: 5px;
+
+.year {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
   display: block;
 }
-.resume-card .small-desc {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+
+.resume-card h4 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.resume-card p {
+  color: var(--text-grey);
+  font-size: 14px;
+}
+.small-desc {
   margin-top: 10px;
+  line-height: 1.5;
 }
 
-/* TECH STACK LOGOS */
-.tech-stack {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 50px;
-  opacity: 0.7;
-}
-.stack-item {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #555;
-  border: 1px solid #333;
-  padding: 10px 20px;
-  border-radius: 5px;
-}
-
-/* PORTFOLIO GRID */
+/* --- 8. PORTFOLIO GRID --- */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  gap: 30px;
 }
+
 .portfolio-item {
   background: var(--card-bg);
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid #222;
-}
-.portfolio-item img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
   transition: 0.3s;
 }
-.portfolio-item:hover img {
-  transform: scale(1.05);
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
+
+.portfolio-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
 .portfolio-info {
   padding: 25px;
 }
 
-/* PRICING */
+/* --- 9. PRICING (ANTI GEPENG) --- */
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
+
 .price-card {
   background: var(--card-bg);
-  padding: 40px;
+  padding: 40px 30px; /* Padding luas */
   border-radius: 10px;
   text-align: center;
   border: 1px solid #222;
+  transition: 0.3s;
+  position: relative;
 }
-.price-card.active {
-  border: 1px solid var(--accent);
+
+.price-card.featured {
+  border: 1px solid var(--primary);
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 0, 79, 0.1);
+  z-index: 2;
 }
-.price {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin: 20px 0;
+
+.price-card h3 {
+  font-size: 18px;
+  color: var(--text-grey);
+  margin-bottom: 10px;
 }
-.price span {
-  font-size: 0.9rem;
-  color: var(--text-muted);
+.price-card .price {
+  font-size: 32px;
+  color: var(--text-white);
+  margin-bottom: 20px;
 }
 .price-card ul {
   text-align: left;
-  margin: 25px 0;
-  list-style: none;
+  margin-bottom: 30px;
 }
 .price-card ul li {
-  margin-bottom: 12px;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-.price-card ul li i {
-  color: var(--accent);
-  margin-right: 10px;
+  margin-bottom: 15px;
+  color: var(--text-grey);
+  font-size: 14px;
 }
 
-/* CONTACT FORM */
+/* FIX TOMBOL PRICING AGAR RAPI DI HP */
+.price-card .btn-primary,
+.price-card .btn-outline {
+  width: 100%; /* Lebar penuh */
+  display: block; /* Kotak blok */
+  padding: 15px 0; /* Padding atas bawah */
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+/* --- 10. FORM CONTACT --- */
 .contact-layout {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 1fr;
   gap: 50px;
 }
-.dark-form .form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 20px;
-}
+
 .dark-form input,
 .dark-form textarea {
   width: 100%;
-  background: var(--input-bg);
-  border: 1px solid #333;
+  background: #222;
+  border: none;
   padding: 15px;
+  margin-bottom: 15px;
   color: white;
   border-radius: 5px;
-  outline: none;
-}
-.dark-form input:focus,
-.dark-form textarea:focus {
-  border-color: var(--accent);
-}
-.full-width {
-  width: 100%;
 }
 
-/* FOOTER */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* --- 11. FOOTER --- */
 footer {
+  background: #151515;
+  padding: 30px 10%;
   text-align: center;
-  padding: 40px;
-  background: #000;
-  border-top: 1px solid #111;
-  margin-left: 250px;
+  border-top: 1px solid #222;
 }
 
-/* RESPONSIVE */
+/* --- 12. RESPONSIVE (HP) --- */
 .menu-toggle {
   display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--primary);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 2000;
+  cursor: pointer;
 }
 
-@media (max-width: 992px) {
-  .resume-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    left: -100%;
-    width: 80%;
-    z-index: 1000;
-    transition: 0.3s;
-    display: block;
-    top: 0;
-  }
-  .sidebar.active {
-    left: 0;
-    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
-  }
-  main {
-    margin-left: 0;
-    width: 100%;
-  }
-  footer {
-    margin-left: 0;
-  }
-  .hero,
-  .contact-layout {
-    flex-direction: column;
-    text-align: center;
-    display: block;
-  }
-  .hero-text {
-    max-width: 100%;
-    margin-bottom: 40px;
-  }
-  .hero-img {
-    margin: 0 auto;
-  }
+@media (max-width: 991px) {
   .menu-toggle {
     display: block;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: var(--accent);
-    padding: 10px 15px;
-    border-radius: 5px;
-    z-index: 1001;
-    cursor: pointer;
-    color: white;
   }
+
+  .sidebar {
+    left: -260px; /* Sembunyikan sidebar */
+  }
+
+  .sidebar.active {
+    left: 0; /* Tampilkan sidebar saat diklik */
+  }
+
+  main {
+    margin-left: 0;
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    justify-content: center;
+    padding-top: 100px;
+  }
+
+  .hero-img img {
+    width: 280px;
+    height: 350px;
+    margin-bottom: 30px;
+  }
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .resume-grid,
   .contact-layout {
     grid-template-columns: 1fr;
   }
-  .dark-form .form-row {
-    grid-template-columns: 1fr;
-  }
-}
-/* --- PERBAIKAN TOMBOL PRICING (Full Width) --- */
-.price-card .btn-primary,
-.price-card .btn-outline {
-  width: 100% !important; /* Paksa tombol jadi lebar penuh */
-  display: block !important; /* Pastikan bentuknya kotak blok */
-  text-align: center; /* Teks rata tengah */
-  padding: 15px 0; /* Jarak atas-bawah pas, kiri-kanan 0 */
-  margin-top: 20px; /* Jarak dari list di atasnya */
-  box-sizing: border-box; /* Pastikan padding tidak merusak ukuran */
-  white-space: nowrap; /* Teks dilarang turun baris */
-}
 
-/* Pastikan kartu pricing tidak gepeng di HP */
-.price-card {
-  padding: 30px 20px; /* Sesuaikan padding kartu di HP */
-  width: 100%;
+  /* Reset Featured Card di HP agar tidak terlalu besar */
+  .price-card.featured {
+    transform: scale(1);
+  }
 }

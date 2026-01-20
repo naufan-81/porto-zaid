@@ -1,21 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- 1. DATA PROJECT (Portofolio Anda) ---
+  // --- 1. DATA PROJECT (FOKUS: WEB APP & LANDING PAGE) ---
   const portfolioData = [
-    // PROYEK JAGOAN (Web App / Pizza)
+    // === WEB APPS (Sistem) ===
     {
       title: "Pizza Delivery System",
-      category: "Web App (Full Stack)",
+      category: "Web App (Order System)",
       img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80",
-      link: "https://github.com/naufan-81/porto-zaid", // Link GitHub Anda
+      link: "https://github.com/naufan-81/porto-zaid", // Link GitHub Utama
     },
     {
       title: "Inventory Dashboard",
-      category: "Web App (System)",
+      category: "Web App (Management)",
       img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
       link: "#",
     },
+    {
+      title: "Crypto Trading App",
+      category: "Web App (Fintech)",
+      img: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=800&q=80",
+      link: "#",
+    },
 
-    // PROYEK LANDING PAGE (Desain)
+    // === LANDING PAGES (Promosi) ===
     {
       title: "Coffee Shop Promo",
       category: "Landing Page",
@@ -30,19 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       title: "Fashion Store",
-      category: "E-Commerce UI",
-      img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80",
-      link: "#",
-    },
-    {
-      title: "Gym Membership",
       category: "Landing Page",
-      img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80",
+      img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80",
       link: "#",
     },
   ];
 
-  // --- 2. RENDER KE LAYAR ---
+  // --- 2. RENDER (TAMPILKAN) KE HTML ---
   const container = document.getElementById("portfolio-container");
   if (container) {
     container.innerHTML = "";
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = document.createElement("div");
       card.classList.add("portfolio-item");
 
-      // Pembeda Warna: Web App (Merah), Landing Page (Kuning Emas)
+      // Logika Warna Label: Web App (Merah), Landing Page (Kuning Emas)
       let categoryColor = project.category.includes("Web App")
         ? "#ff004f"
         : "#ffb700";
@@ -67,9 +67,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- 3. FITUR MENU HP ---
+  // --- 3. FITUR MENU HP (Sidebar Toggle) ---
   const menuToggle = document.getElementById("mobile-menu");
   const sidebar = document.querySelector(".sidebar");
+
+  // Tutup menu kalau layar diklik di luar sidebar
+  document.addEventListener("click", (e) => {
+    if (
+      menuToggle &&
+      sidebar &&
+      !sidebar.contains(e.target) &&
+      !menuToggle.contains(e.target)
+    ) {
+      sidebar.classList.remove("active");
+    }
+  });
+
   if (menuToggle) {
     menuToggle.addEventListener("click", () => {
       sidebar.classList.toggle("active");
