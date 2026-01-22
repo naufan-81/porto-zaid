@@ -1,44 +1,56 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- 1. DATA PROJECT (FOKUS: WEB APP & LANDING PAGE) ---
+  // --- 1. DATA PROJECT (SUDAH DISAMBUNGKAN KE LINK ASLI) ---
   const portfolioData = [
-    // === WEB APPS (Sistem) ===
+    // === WEB APPS (Sistem Fungsional) ===
     {
       title: "Pizza Delivery System",
       category: "Web App (Order System)",
       img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80",
-      link: "https://github.com/naufan-81/porto-zaid", // Link GitHub Utama
+      // Link ke Repo Utama (Portofolio ini)
+      link: "https://github.com/naufan-81/porto-zaid",
+      btnText: "View Code",
     },
     {
       title: "Inventory Dashboard",
       category: "Web App (Management)",
       img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-      link: "#",
+      // Link Inventory App
+      link: "https://github.com/naufan-81/inventori.app",
+      btnText: "View Code",
     },
     {
       title: "Crypto Trading App",
       category: "Web App (Fintech)",
       img: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=800&q=80",
-      link: "#",
+      // Link Crypto App
+      link: "https://github.com/naufan-81/crypto-app",
+      btnText: "View Code",
     },
 
-    // === LANDING PAGES (Promosi) ===
+    // === LANDING PAGES (Demo Live Website) ===
     {
       title: "Coffee Shop Promo",
       category: "Landing Page",
       img: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80",
-      link: "#",
+      // Link Demo Coffee Shop
+      link: "https://naufan-81.github.io/coffee-shop/",
+      btnText: "View Demo", // Tombol berubah jadi 'View Demo' biar lebih pas
     },
     {
       title: "Travel Agency Web",
       category: "Landing Page",
       img: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80",
-      link: "#",
+      // Link Demo Travel
+      link: "https://naufan-81.github.io/travel-agency/",
+      btnText: "View Demo",
     },
     {
       title: "Fashion Store",
       category: "Landing Page",
       img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80",
-      link: "#",
+      // Link Demo Fashion
+      link: "https://naufan-81.github.io/fashion-store/",
+      btnText: "View Demo",
     },
   ];
 
@@ -55,19 +67,22 @@ document.addEventListener("DOMContentLoaded", () => {
         ? "#ff004f"
         : "#ffb700";
 
+      // Menggunakan project.link dan project.btnText yang baru
       card.innerHTML = `
                 <img src="${project.img}" alt="${project.title}">
                 <div class="portfolio-info">
                     <span style="color: ${categoryColor}; font-size: 11px; font-weight:bold; letter-spacing:1px;">${project.category.toUpperCase()}</span>
                     <h3 style="margin-top:5px; font-size:1.2rem;">${project.title}</h3>
-                    <a href="${project.link}" target="_blank" style="color: #fff; text-decoration: none; font-size: 13px; border: 1px solid #555; padding: 5px 12px; border-radius: 4px; margin-top:10px; display:inline-block; background: rgba(0,0,0,0.5);">View Code &rarr;</a>
+                    <a href="${project.link}" target="_blank" style="color: #fff; text-decoration: none; font-size: 13px; border: 1px solid #555; padding: 5px 12px; border-radius: 4px; margin-top:10px; display:inline-block; background: rgba(0,0,0,0.5);">
+                        ${project.btnText} &rarr;
+                    </a>
                 </div>
             `;
       container.appendChild(card);
     });
   }
 
-  // --- 3. FITUR MENU HP (Sidebar Toggle) ---
+  // --- 3. FITUR MENU HP ---
   const menuToggle = document.getElementById("mobile-menu");
   const sidebar = document.querySelector(".sidebar");
 
