@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "Web App (Fintech)",
       img: "https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=800&q=80",
       // Link Crypto App
-      link: "https://github.com/naufan-81/crypto-app",
+      link: "https://github.com/naufan-81/crypto.app",
       btnText: "View Code",
     },
 
