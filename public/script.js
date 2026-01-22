@@ -32,16 +32,16 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Coffee Shop Promo",
       category: "Landing Page",
       img: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80",
-      // Link Demo Coffee Shop
-      link: "https://naufan-81.github.io/coffee-shop/",
-      btnText: "View Demo", // Tombol berubah jadi 'View Demo' biar lebih pas
+      link: " https://naufan-81.github.io/coffe-shop/",
+      btnText: "View Demo",
+      target: "_blank",
     },
     {
       title: "Travel Agency Web",
       category: "Landing Page",
       img: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80",
       // Link Demo Travel
-      link: "https://naufan-81.github.io/travel-agency/",
+      link: "https://naufan-81.github.io/Travel-Agency/",
       btnText: "View Demo",
     },
     {
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       category: "Landing Page",
       img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80",
       // Link Demo Fashion
-      link: "https://naufan-81.github.io/fashion-store/",
+      link: "https://naufan-81.github.io/Fashion-Store/",
       btnText: "View Demo",
     },
   ];
